@@ -23,17 +23,15 @@ class CustomerSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class BillSerializer(serializers.ModelSerializer):
-    # Nested Serializer to display customer details in each bill
-    customer = CustomerSerializer(read_only=True)
+    employee = serializers.PrimaryKeyRelatedField(read_only=True)
     
     class Meta:
         model = Bill
-        fields = '__all__'
+        fields = ['id', 'date', 'total_amount', 'status', 'customer', 'employee']
+        read_only_fields = ('date', 'employee',) 
+
 
 class BillProductSerializer(serializers.ModelSerializer):
-    # Nested Serializer to display product details in each bill product
-    product = ProductSerializer(read_only=True)
-    
     class Meta:
         model = BillProduct
         fields = '__all__'

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
@@ -18,15 +19,19 @@ class Customer(models.Model):
     def __str__(self):
         return self.name
 
-
 class Bill(models.Model):
+    class BillStatus(models.TextChoices):
+        PAID = 'PAID', 'Paid'
+        UNPAID = 'UNPAID', 'Unpaid'
+
     date = models.DateTimeField(auto_now_add=True)
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, related_name='bills')
+    employee = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='created_bills')
     total_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    status = models.CharField(max_length=6, choices=BillStatus.choices, default=BillStatus.UNPAID)
 
     def __str__(self):
-        return f"Bill {self.id} - {self.date.strftime('%Y-%m-%d')}"
-
+        return f"Bill {self.id} - {self.date.strftime('%Y-%m-%d')} - {self.status}"
 
 class BillProduct(models.Model):
     bill = models.ForeignKey(Bill, on_delete=models.CASCADE, related_name='bill_products')

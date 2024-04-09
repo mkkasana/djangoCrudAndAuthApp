@@ -35,4 +35,5 @@ urlpatterns = [
     path('register/', views.CreateUserView.as_view(), name='register'),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/top-seller/', views.TopSellingEmployee.as_view(), name='top_selling_employee'),
 ]

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-gylek4&$v=wsu$673nd8-rxe3-o63iba^b32%d&vivknrgm5*f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'shoppingbillingsystem-fde8b1bd5e8b.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'shoppingbillingsystem-92a472164483.herokuapp.com']
 
 
 # Application definition
@@ -130,14 +130,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Postgres database link got from Heroku
 # It structure is
 # postgres://<username>:<password>@<host>:<port>/<database name>
-# postgres://u35kntkrfnevh6:p67abc2c7f0e3f77ad1b06d09d82459c4d65d28a5d60beaf8c163b30d69b03a8d@c7gljno857ucsl.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d8mi54kbctfefq
+# postgres://ufgdrtdhgu5ko2:p82fb18d4e7e76af002dac430dfe0d1c2ec1a910f82eabdd8522a0d6be1cb6093@c7gljno857ucsl.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d3aom2490s967b
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd8mi54kbctfefq',
-        'USER': 'u35kntkrfnevh6',
-        'PASSWORD': 'p67abc2c7f0e3f77ad1b06d09d82459c4d65d28a5d60beaf8c163b30d69b03a8d',
+        'NAME': 'd3aom2490s967b',
+        'USER': 'ufgdrtdhgu5ko2',
+        'PASSWORD': 'p82fb18d4e7e76af002dac430dfe0d1c2ec1a910f82eabdd8522a0d6be1cb6093',
         'HOST': 'c7gljno857ucsl.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',  # or another host if your db is not local
         'PORT': '5432',  # default PostgreSQL port
     }

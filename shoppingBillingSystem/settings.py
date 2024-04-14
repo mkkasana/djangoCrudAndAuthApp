@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -128,17 +127,18 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
-}
+# Postgres database link got from Heroku
+# It structure is
+# postgres://<username>:<password>@<host>:<port>/<database name>
+# postgres://u35kntkrfnevh6:p67abc2c7f0e3f77ad1b06d09d82459c4d65d28a5d60beaf8c163b30d69b03a8d@c7gljno857ucsl.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d8mi54kbctfefq
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'shoppingbillingsystem',
-        'USER': 'admin',
-        'PASSWORD': 'admin',
-        'HOST': 'localhost',  # or another host if your db is not local
+        'NAME': 'd8mi54kbctfefq',
+        'USER': 'u35kntkrfnevh6',
+        'PASSWORD': 'p67abc2c7f0e3f77ad1b06d09d82459c4d65d28a5d60beaf8c163b30d69b03a8d',
+        'HOST': 'c7gljno857ucsl.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',  # or another host if your db is not local
         'PORT': '5432',  # default PostgreSQL port
     }
 }
